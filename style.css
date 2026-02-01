@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap');
+
+body {
+    background-image: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    overflow: hidden;
+    color: #b71c1c;
+}
+
+/* --- GALERÍA POLAROID --- */
+.fondo-fotos {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(4px); /* Empieza borroso */
+    transition: filter 1s ease;
+}
+
+.foto-polaroid {
+    position: absolute;
+    width: 150px;
+    border: 8px solid white;
+    border-bottom: 25px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: transform 0.5s ease;
+}
+
+/* Posiciones aleatorias */
+.foto-1 { top: 5%; left: 5%; transform: rotate(-10deg); }
+.foto-2 { top: 5%; right: 5%; transform: rotate(15deg); }
+.foto-3 { bottom: 10%; left: 10%; transform: rotate(5deg); }
+.foto-4 { bottom: 5%; right: 8%; transform: rotate(-12deg); }
+.foto-5 { top: 40%; left: -2%; transform: rotate(8deg); }
+.foto-6 { top: 35%; right: -2%; transform: rotate(-10deg); }
+.foto-7 { top: 15%; left: 40%; transform: rotate(-5deg); z-index: -2; }
+.foto-8 { bottom: 15%; left: 45%; transform: rotate(10deg); z-index: -2; }
+
+/* --- TARJETA --- */
+.tarjeta {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 40px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    max-width: 90%;
+    z-index: 10;
+}
+
+h1 { font-family: 'Pacifico', cursive; font-size: 3em; margin: 0; color: #d32f2f; }
+.subtitulo { font-size: 1.2em; opacity: 0.8; margin-bottom: 20px; }
+
+/* --- CORAZÓN Y CARGA --- */
+.contenedor-central {
+    position: relative;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.corazon-latido {
+    font-size: 7em;
+    animation: latir 0.8s infinite;
+    filter: drop-shadow(0 0 10px rgba(211, 47, 47, 0.4));
+}
+
+#contador-progreso {
+    position: absolute;
+    background: #d32f2f;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    top: 0;
+    transition: all 0.3s;
+}
+
+@keyframes latir {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+/* --- BOTÓN --- */
+.btn-compartir {
+    background: #d32f2f;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.2s;
+}
+
+.btn-compartir:hover { transform: scale(1.1); }
+
+@media (max-width: 600px) {
+    .foto-polaroid { width: 100px; }
+}
